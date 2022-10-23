@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
-import './ThoughtStyle.css'
+
 import Auth from '../../utils/auth';
 
 const ThoughtForm = () => {
@@ -24,13 +24,18 @@ const ThoughtForm = () => {
       } catch (e) {
         console.error(e);
       }
-
+      try {
       // update me object's cache
       const { me } = cache.readQuery({ query: QUERY_ME });
+      console.log(me);
       cache.writeQuery({
         query: QUERY_ME,
         data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
       });
+    }
+    catch (e) {
+      console.error(e);
+    }
     },
   });
 
@@ -90,7 +95,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Cases
+                Add Thought
               </button>
             </div>
             {error && (
