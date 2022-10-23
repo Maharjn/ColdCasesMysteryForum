@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import Auth from '../../utils/auth';
-import Container from 'react-bootstrap/Container';
+
 import './Nav.css';
 const Header = () => {
   const logout = (event) => {
@@ -17,16 +17,16 @@ const Header = () => {
             <h1 >Cold Cases and Unsolved Mysteries</h1>
           </Link>
           <p className='p-item'>Detective mind Thouhts.</p>
-<Navbar>
-<Container>
+
   <Nav>
           {Auth.loggedIn() ? (
             <>
-<Nav.Item className="ms-auto">
-              <Nav.Link  to="/me">
+<Nav.Item >
+              <Link className='linkItem' to="/me">
                 {Auth.getProfile().data.username}'s profile
-              </Nav.Link>
-              <a href="/" onClick={logout}>
+              </Link>
+              
+              <a className='linkItem' href="/" onClick={logout}>
                 Logout
               </a>
               </Nav.Item>
@@ -34,18 +34,17 @@ const Header = () => {
           ) : (
             <>
             <Nav.Item>
-              <Nav.Link  to="/login">
+              <Link className='linkItem' to="/login">
                 Login
-              </Nav.Link>
-              <Nav.Link  to="/signup">
+              </Link>
+              <Link className='linkItem' to="/signup">
                 Signup
-              </Nav.Link>
+              </Link>
               </Nav.Item>
             </>
           )}
           </Nav>
-           </Container>
-</Navbar>
+ 
     </header>
   );
 };
