@@ -62,7 +62,7 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3>Which mystery case you want to discuss here?</h3>
 
       {Auth.loggedIn() ? (
         <>
@@ -71,7 +71,7 @@ const ThoughtForm = () => {
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
-            Character Count: {characterCount}/280
+            Character Count: {characterCount}/500
           </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
