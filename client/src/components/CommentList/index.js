@@ -1,4 +1,5 @@
 import React from 'react';
+import './Comment.css';
 
 const CommentList = ({ comments = [] }) => {
   if (!comments.length) {
@@ -17,7 +18,7 @@ const CommentList = ({ comments = [] }) => {
         {comments &&
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">
-              <div className="p-3 bg-dark text-light">
+              <div className="p-3 text-light commentItem">
                 <h5 className="card-header">
                   {comment.commentAuthor} commented{' '}
                   <span style={{ fontSize: '0.825rem' }}>
