@@ -16,7 +16,7 @@ const Header = () => {
           <Link  to="/">
             <h1 >Cold Cases and Unsolved Mysteries</h1>
           </Link>
-          <p className='p-item'>Detective mind Thouhts.</p>
+          <p className='p-item'>An open forum to discuss about cold cases.</p>
 
   <Nav>
           {Auth.loggedIn() ? (
